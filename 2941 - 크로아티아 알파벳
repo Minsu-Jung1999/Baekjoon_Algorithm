@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+
+int main() {
+	char alpa[105];
+	int num = 0;
+	cin >> alpa;
+	int size = strlen(alpa);
+	for (int i = 0; i < size; i++)
+	{
+		if (alpa[i] == 'c'){
+			if (alpa[i + 1] == '=') {
+				cout << "find = " << alpa[i] << alpa[i + 1] << endl;
+				num--;
+			}
+			else if (alpa[i + 1] == '-') {
+				cout << "find = " << alpa[i] << alpa[i + 1] << endl;
+				num--;
+			}
+		}
+
+		if (alpa[i] == 'd') {
+			if (alpa[i + 1] == 'z') {
+				if (alpa[i + 2] == '=') {
+					cout << "find = " << alpa[i] << alpa[i + 1] << endl;
+					num--;
+				}
+			}
+			else if (alpa[i + 1] == '-') {
+				cout << "find = " << alpa[i] << alpa[i + 1] << endl;
+				num--;
+			}
+		}
+		if (alpa[i] == 'l' || alpa[i] == 'n') {
+			if (alpa[i + 1] == 'j') {
+				cout << "find = " << alpa[i] << alpa[i + 1] << endl;
+				num--;
+			}
+		}
+		if (alpa[i] == 's' || alpa[i] == 'z') {
+			if (alpa[i + 1] == '=') {
+				cout << "find = " << alpa[i] << alpa[i + 1] << endl;
+				num--;
+			}
+		}
+	}
+	cout << size + num;
+}
+
