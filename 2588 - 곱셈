@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+
+int main()
+{
+	int num1;
+	int num2;
+	int a = 0, b = 0, c = 0;
+	cin >> num1;
+	cin >> num2;
+	a = num2 / 100;
+	c = num2 % 10;
+	b = (num2/10) % 10;
+	cout << num1 * c << endl << num1 * b << endl << num1 * a << endl<<num1*num2;
+}
+
