@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cstring>
+#pragma warning(disable:4996)
+using namespace std;
+
+
+int main()
+{
+	int repeat,h,w,n,roomnum=0;
+	cin >> repeat;
+	while (repeat>0)
+	{
+		cin >> h >> w >> n;
+		roomnum = (n % h == 0) ? h * 100 : (n % h * 100);
+		roomnum += (n / h);
+		
+		(n % h == 0) ? roomnum : roomnum++;
+		cout << roomnum<< endl;
+
+		repeat--;
+	}
+}
+
