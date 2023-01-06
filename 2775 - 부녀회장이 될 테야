@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cstring>
+#pragma warning(disable:4996)
+using namespace std;
+
+
+/**
+4   1 06 21 56 126 252
+3	1 05 15 35 70  126
+2	1 04 10 20 35  56
+1	1 03 06 10 15  21
+0	1 02 03 04 05  06
+*/
+
+/**
+4   1 06 21 56 126 252
+3	1 05           126
+2	1 04
+1	1 03 06 10 15  21
+0	1 02 03 04 05  06
+*/
+
+using namespace std;
+
+int GetSize(int k, int n)
+{
+    if (n == 1)
+        return 1;
+    if (k == 0)
+        return n;
+    if (n == 2)
+        return k + 2;
+    if (k == 1)
+        return n * (n + 1) / 2;
+    cout << "k = " << k << endl;
+    cout << "n = " << n << endl;
+    cout << endl;
+    return (GetSize(k - 1, n) + GetSize(k, n - 1));
+}
+
+int main() {
+    int t, k, n,s;
+    cin >> t;
+    cin >> k;
+    cin >> n;
+    while (t>0)
+    {
+        cout<<GetSize(k, n)<<endl;
+        t--;
+    }
+}
