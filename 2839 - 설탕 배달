@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cstring>
+#pragma warning(disable:4996)
+using namespace std;
+
+
+int main() {
+    int f=0, t=0, n;
+    cin >> n;
+	while (n>0)
+	{
+		if (n % 5 == 0 || (n % 5 == 0 && n % 3 == 0)) {
+			n -= 5;
+			f++;
+		}
+		else if (n % 5 != 0 && n % 3 == 0) {
+			n -= 3;
+			t++;
+		}
+		else if (n > 5)
+		{
+			n -= 5;
+			f++;
+		}
+		else if (n > 3)
+		{
+			n -= 3;
+			t++;
+		}
+		if (n < 3&&n!=0) {
+			cout << -1;
+			break;
+		}
+		else if (n == 0) {
+			cout << f + t << endl;
+		}
+	}
+}
