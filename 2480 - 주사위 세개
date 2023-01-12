@@ -1,0 +1,41 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int main(void)
+{
+	int a, b, c;
+	scanf("%d%d%d", &a, &b, &c);
+	if (a == b) {
+		if (a == c) {
+			printf("%d", 10000 + a * 1000);
+			return 0;
+		}
+		printf("%d", 1000 + a * 100);
+		return 0;
+
+	}
+	if (b == c) {
+		if (b == a) {
+			printf("%d", 10000 + b * 1000);
+			return 0;
+		}
+		printf("%d", 1000 + b * 100);
+		return 0;
+
+	}
+	if (c == a) {
+		if (c == b) {
+			printf("%d", 10000 + c * 1000);
+			return 0;
+		}
+		printf("%d", 1000 + c * 100);
+		return 0;
+
+	}
+	else
+	{
+		int d = (a > b) ? a : b;
+		d = (d > c) ? d : c;
+		printf("%d", d * 100);
+
+	}
+ }
