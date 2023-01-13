@@ -1,0 +1,59 @@
+#include <iostream>
+#pragma warning(disable:4996)
+using namespace std;
+
+
+int main() {
+	char num1[10002];
+	char num2[10002];
+	char *answer  = new char[10003] ;
+	int added = 0;
+	int passed = 0;
+	int a, b;
+	cin >> num1 >> num2;
+	int size =  strlen(num1) > strlen(num2) ? strlen(num1) : strlen(num2);
+	for (long unsigned int i = 1; i < size+1; i++)
+	{
+
+		
+		if (i < strlen(num1)+1)
+		{
+			if (num1[strlen(num1) - i] - '0' >= 0 && num1[strlen(num1) - i] - '0' <= 9)
+				a = num1[strlen(num1) - i] - '0';
+			else
+				a = 0;
+			//cout << " a = " << a;
+		}
+		else
+			a = 0;
+		if (i < strlen(num2)+1)
+		{
+			if (num2[strlen(num2) - i] - '0' >= 0 && num2[strlen(num2) - i] - '0' <= 9)
+				b = num2[strlen(num2) - i] - '0';
+			else
+				b = 0;
+			//cout << "	 b = " << b << endl;
+		}
+		else
+			b = 0;
+
+		added= a + b+passed;
+		if (added > 9) {
+			added -= 10;
+			passed = 1;
+		}
+		else
+			passed = 0;
+		answer[strlen(answer) - i] = added+'0';
+	}
+	for (long unsigned int i = 0; i < strlen(answer) ; i++)
+	{
+		if (answer[i] - '0' >= 0 && answer[i] - '0' <= 9)
+		{
+			if (passed == 1)
+				cout << 1;
+			cout << answer[i];
+			passed = 0;
+		}
+	}
+}
