@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+#include <cstring>
+//#include <bits/stdc++.h>
+
+
+int main() {
+	int n, a=0,o=0;
+	cin >> n;
+	o = n;
+	while (n>0)
+	{
+		cin >> a;
+		if (a <= 1)
+		{
+			o--;
+		}
+		for (int i = 2; i < a; i++)
+		{
+			if (a % i == 0)
+			{
+				o--;
+				break;
+			}
+		}
+		n--;
+	}
+	cout << o;
+}
