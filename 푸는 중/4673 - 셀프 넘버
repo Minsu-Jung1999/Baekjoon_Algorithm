@@ -1,0 +1,69 @@
+//#include <iostream>
+#include <stdio.h>
+using namespace std;
+#include <cstring>
+//#include <bits/stdc++.h>
+
+int threedigit(int num) {
+	int m = num / 10;
+	return  (num)+(num / 100) + (m / 10) + (m % 10);
+}
+int main() {
+	int self = 1;
+	int arr1[10001] = { 0 };
+	int arr2[10001] = { 0 };
+	for (int i = 0; i < 10001; i++)
+	{
+		int a = i + 10;
+		if (a < 100)	// 2 자리 수
+		{
+			arr1[i] = (a)+ (a / 10) + (a % 10);
+		}
+		else if (a < 1000)	// 3 자리 수 ex) 999/ 100 = 9	999/10 = 99 / 10 = 9	99 % 9 = 9 
+		{
+			arr1[i] = (a) + threedigit(a);
+		}
+		else if (a < 10000)	// 4 자리 수 ex) 9999 / 1000 = 9		9999 - (9999/1000 * 1000) = 999 ^^^
+		{
+			int m = a / 1000;
+			arr1[i] = a + m;
+			m = a - (m * 1000); // three digit
+			arr1[i] += threedigit(m);
+		}
+	}
+	bool issame = false;
+
+	for (int i = 0; i < 10001; i++)
+	{
+		issame = false;
+		for (int j = 0; j < 10001; j++)
+		{
+			if (i != j)
+			{
+				if (arr1[i] == arr1[j])
+					issame = true;
+			}
+		}
+		if (!issame)
+			arr2[i] = arr1[i];
+
+	}
+
+	int min = arr1[0];
+	for (int i = 0; i < 10001; i++)
+	{
+		for (int j = i; j < 10001; j++)
+		{
+			if (arr2[j] < arr1[i])
+			{
+				int temp = arr2[j];
+				arr2[j] = arr1[i];
+				arr1[i] = temp;
+			}
+		}
+	}
+	for (int i = 0; i < 10001; i++)
+	{
+		printf("%d\n", arr2[i]);
+	}
+}
