@@ -1,0 +1,39 @@
+#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+
+int main() {
+	int a,i=0;
+	int arr[1001];
+	cin >> a;
+	i = a;
+	while (i > 0)
+	{
+		cin >> arr[a-i];
+		i--;
+	}
+	for (int i = 0; i < a; i++)
+	{
+		for (int j = i; j < a; j++)
+		{
+			if (arr[i] > arr[j])
+			{
+				int temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+
+	int time = 0;
+	for (int i = 0; i < a; i++)
+	{
+		for (int j = 0; j < i+1; j++)
+		{
+			time += arr[j];
+		}
+	}
+
+	cout << time;
+}
