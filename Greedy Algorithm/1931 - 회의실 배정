@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main() {
+	int n,s_t,e_t,first=0,last, room=1;
+	vector<pair<int, int>> appointment;
+	cin >> n;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> s_t >> e_t;
+		appointment.push_back(make_pair(e_t, s_t));
+	}
+	sort(appointment.begin(), appointment.end());
+	last = appointment[0].first;
+	for (int i = 1; i < n; i++)
+	{
+		if (appointment[i].second >= last)
+		{
+			room++;
+			last = appointment[i].first;
+		}
+	}
+	cout << room;
+
+}
