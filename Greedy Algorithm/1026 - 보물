@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    int n,total=0;
+    int a[100];
+    int b[100];
+    cin>>n;
+    for(int i =0; i<n; i++)
+    {
+        cin>> a[i];
+    }
+    for(int i =0; i<n; i++)
+    {
+        cin>> b[i];
+    }
+    // sort
+    for(int i =0; i<n; i++)
+    {
+        for(int j =i; j<n; j++)
+        {
+            if(a[i]>a[j])
+            {
+                int temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
+        }
+    }
+
+// sort
+    for(int i =0; i<n; i++)
+    {
+        for(int j =i; j<n; j++)
+        {
+            if(b[i]<b[j])
+            {
+                int temp = b[i];
+                b[i] = b[j];
+                b[j] = temp;
+            }
+        }
+    }
+    for(int i = 0; i< n ; i++)
+    {
+        total+= a[i]*b[i];
+    }
+    cout<<total;
+
+   return 0;
+}
