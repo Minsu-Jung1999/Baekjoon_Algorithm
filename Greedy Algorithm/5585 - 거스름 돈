@@ -1,0 +1,17 @@
+#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main() {
+	int m, c = 0;
+	int coin[6] = { 500,100,50,10,5,1 };
+	cin >> m;
+	int b = 1000-m;
+	for (int i = 0; i < 6; i++)
+	{
+		c += b / coin[i];
+		b %= coin[i];
+	}
+	cout << c;
+	
+}
