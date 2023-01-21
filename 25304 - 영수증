@@ -1,0 +1,23 @@
+#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main() {
+	int money;
+	int c;
+	cin >> money;
+	cin >> c;
+	
+	while (c>0)
+	{
+		int cm, n;
+		cin >> cm >> n;
+		money -= cm * n;
+		c--;
+	}
+	if (money == 0)
+		cout << "Yes";
+	else
+		cout << "No";
+	
+}
