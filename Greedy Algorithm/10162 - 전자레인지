@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	int b_t[3] = { 300,60,10 };
+	int t;
+	scanf("%d", &t);
+	if (t % 10 == 0)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			int c = t / b_t[i];
+			t %= b_t[i];
+			printf("%d ", c);
+		}
+	}
+	else
+		printf("-1");
+	
+}
+
