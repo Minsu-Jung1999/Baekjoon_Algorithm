@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+
+int main()
+{
+	long long s,c=0,n=1;
+	scanf("%lld", &s);
+	
+	while (c<s)
+	{
+		c = (n * (n + 1)) / 2; // 가우스 공식
+		if (c > s)
+			break;
+		n++;
+	}
+	printf("%lld", n-1);
+}
+
