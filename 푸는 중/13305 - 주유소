@@ -1,0 +1,48 @@
+//#include <stdio.h>
+#include <iostream>
+//#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+	long city;						// 도시개수
+	__int64 price[100001];			// 기름 가격
+	__int64 total_price = 0;
+
+int main()
+{
+	cin >> city;
+	__int64 distance[100000];		// 거리 (도시보다 항상 하나 작음);
+
+	// 거리 입력
+	for (int i = 0; i < city - 1; i++)
+		cin >> distance[i];
+
+	// 도시 당 기름 가격 입력
+	for (int i = 0; i < city; i++)
+		cin >> price[i];
+
+	for (int i = 0; i < city - 1; i++)				// 가격 비교 시 다음 도시까지 비교하니까 city 를 하나 작게 한다.(Out of range)
+	{
+		// 주유 횟수 저장
+		int add_gas = 0;
+
+		for (int j = i + 1; j < city; j++)			// 다음 도시와 가격비교 해야 하므로 j 는 i 보다 하나 크다.		
+		{
+			int move = 0;
+			if (price[i] < price[j])				// 만약, 다음 도시가 더 비싸다면 ...
+			{
+				add_gas += distance[j - 1];			// ... 현재 도시 가격으로 거리만큼 더해준다. j 가 1 더해졌기 때문에 j -1 해준다.
+				move++;
+			}
+			if (price[i] >= price[j])				// 지금 도시 가격이 비싸다면
+			{
+
+				add_gas += distance[j - 1];		//		... 최소한 갈 정도로만 주유
+				total_price += add_gas * price[i];	// 현재 도시 유가에 거리만큼 곱해서 가격 계산 후 이동
+				i = j - 1;
+				break;
+			}
+		}
+	}
+	cout << total_price;
+}
+
