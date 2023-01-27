@@ -1,0 +1,25 @@
+//#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+//#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	int a,t=0,b=0;
+	cin >> a;
+	while (b!=a)
+	{
+		t++;
+		cout << "*";
+		if (t > b) {
+			cout << endl;
+			t = 0;
+			b++;
+		}
+	}
+
+}
+
