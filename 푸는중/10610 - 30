@@ -1,0 +1,36 @@
+//#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+//#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	string num;
+	vector <int> sepnum;
+	unsigned int sortednum;
+	cin >> num;
+	for (int i = 0; i < num.size(); i++)
+	{
+		int a = num[i] - '0';
+		sepnum.push_back(a);
+	}
+	
+	sort(sepnum.rbegin(), sepnum.rend());
+	
+	for (int i = 0; i < num.size(); i++)
+	{
+		num[i] = sepnum[i]+'0';
+	}
+	sortednum = stoi(num);
+	if (sortednum % 30 == 0) {
+		cout << sortednum;
+	}
+	else
+	{
+		cout << -1;
+	}
+}
+
