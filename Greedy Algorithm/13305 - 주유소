@@ -1,0 +1,51 @@
+//#include <stdio.h>
+#include <vector>
+#include <iostream>
+//#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+long city;						// 도시개수
+vector<long long> city_oil_price;		// 기름 가격
+long long total_price;
+vector<long long> road_distance;		// 거리 (도시보다 항상 하나 작음);
+long long chepest_price;
+int main()
+{
+	cin >> city;
+
+	// 거리 입력
+	for (int i = 0; i < city - 1; i++)
+	{
+		long long load_distance;
+		cin >> load_distance;
+		road_distance.push_back(load_distance);
+	}
+
+	// 도시 당 기름 가격 입력
+	for (int i = 0; i < city; i++)
+	{
+		long long oil_price;
+		cin >> oil_price;
+		city_oil_price.push_back(oil_price);
+	}
+
+	// 출발 시 무조건 주유를 해야 함
+	chepest_price = city_oil_price[0];
+	total_price += chepest_price * road_distance[0];
+
+	// 주유를 하였으므로 배열은 1 부터 시작
+	for (int i = 1; i < city_oil_price.size()-1; i++)
+	{
+												
+		if (chepest_price < city_oil_price[i])					// i 번째 도시의 유가가 더 비싸다면 제일 싼 가격으로 주유
+			total_price += chepest_price * road_distance[i];
+		else													// i 번째 도시의 유가가 더 싸다면, 가장 싼 가격으로 설정 후 주유
+		{
+			chepest_price = city_oil_price[i];
+			total_price += chepest_price * road_distance[i];
+		}
+		
+	}
+	cout << total_price << endl;
+
+}
