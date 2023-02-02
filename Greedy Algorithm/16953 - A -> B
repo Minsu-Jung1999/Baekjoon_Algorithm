@@ -1,0 +1,48 @@
+//#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	int a=0,c=0;
+	int b;
+	cin >> a >> b;
+	while (true)
+	{
+		if (a > b)
+		{
+			cout << -1;
+			break;
+		}
+		if (a == b)
+		{
+			cout << ++c;
+			break;
+		}
+		
+		if (b % 2 == 0)
+		{
+			b /= 2;
+		}
+		else if(b % 10 ==1)
+		{
+			b--;
+			b /= 10;
+		}
+		else
+		{
+			cout << -1;
+			break;
+		}
+		c++;
+
+		
+	}
+	
+	
+}
+
