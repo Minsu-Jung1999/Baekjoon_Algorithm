@@ -1,0 +1,49 @@
+//#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	vector <int> cards;
+	vector <int> sums;
+	unsigned long total=0;
+	int c;
+	cin >> c;
+	for (int i = 0; i < c; i++)
+	{
+		int num;
+		cin >> num;
+		cards.push_back(num);
+	}
+	if (c == 1)
+	{
+		cout << cards[0];
+		return 0;
+	}
+
+	while (true)
+	{
+		if (cards.size() > 1)
+		{
+			total += cards[0] + cards[1];
+			cards.erase(cards.begin());
+			cards.erase(cards.begin());
+			sort(cards.begin(), cards.end());
+			cards.push_back(total);
+			sums.push_back(total);
+			total = 0;
+		}
+		else
+		{
+			total += cards[0];
+			break;
+		}
+	}
+	cout << accumulate(sums.begin(), sums.end(), 0);
+}
+
