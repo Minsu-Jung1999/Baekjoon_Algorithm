@@ -1,0 +1,27 @@
+//#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	int p, l, v,d,c=1;
+	while (true)
+	{
+		cin >> l >> p >> v;
+		if (p == 0)
+			break;
+		d = (v / p)*l;
+		if (v % p >= l)
+			d += l;
+		else
+			d +=  (v % p);
+		cout << "Case " << c << ": " << d << endl;
+		c++;
+	}
+}
+
