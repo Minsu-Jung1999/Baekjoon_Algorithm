@@ -1,0 +1,47 @@
+//#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	int set_price=1000, sep_price=1000, rope, num,set,sep;
+	cin >> rope >> num;
+	for (int i = 0; i < num; i++)
+	{
+		int set_temp, sep_temp;
+		cin >> set_temp >> sep_temp;
+		
+		if (set_temp < set_price)
+			set_price = set_temp;
+		if (sep_temp < sep_price)
+			sep_price = sep_temp;
+	}
+	
+	set = rope / 6; // 사야 하는 세트 수
+	sep = rope % 6;	// 사야 하는 낫게 수
+
+	
+	
+	// 낱게로 구매 했을 때 통으로 하나 사는 거 보다 비쌀 때
+	if (sep * sep_price > set_price)
+	{
+		cout << (set + 1) * set_price;
+	}
+	// 낱게로 다 사는게 가장 이득일 때
+	else if (rope * sep_price < (set * set_price) + sep * sep_price)
+	{
+		cout << rope * sep_price;
+	}
+	// 낱게와 합으로 구매
+	else
+		cout << set * set_price + sep * sep_price;
+
+
+
+
+}
