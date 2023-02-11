@@ -1,0 +1,27 @@
+//#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	int q = 25, d = 10, n = 5, p = 1;
+	int t, c,total;
+	cin >> t;
+	for (int i = 0; i < t; i++)
+	{
+		total = 0;
+		cin >> c;
+		cout << c / q << " ";
+		c %= q;
+		cout << c / d << " ";
+		c %= d;
+		cout << c / n << " ";
+		c %= n;
+		cout << c / p << " " << endl;
+	}
+}
