@@ -1,0 +1,43 @@
+//#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <numeric>
+#define _CRT_SECURE_NO_WARNINGS
+using namespace std;
+
+int main()
+{
+	int n, c = 1;
+	vector <pair<long,long>> s;
+
+	cin >> n;
+	if (n == 0)
+	{
+		cout << 0;
+		return 0;
+	}
+	for (int i = 0; i < n; i++)
+	{
+		long a,b;
+		cin >> a >> b;
+		s.push_back(make_pair(a, b));
+	}
+	sort(s.begin(), s.end());
+	long end = s[0].second;
+	for (long i = 1; i < n; i++)
+	{
+		//cout << s[i].first << " , " << s[i].second << endl;
+
+		if (s[i].first >= end)
+		{
+			c++;
+			end = s[i].second;
+			//cout << "start = " << s[i].first << endl;
+			//cout << "end = " << s[i].second << endl;
+		}
+	}
+	cout << c;
+
+}
